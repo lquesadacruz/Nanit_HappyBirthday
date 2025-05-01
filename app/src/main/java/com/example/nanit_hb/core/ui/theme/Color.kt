@@ -1,4 +1,4 @@
-package com.example.nanit_hb.ui.theme
+package com.example.nanit_hb.core.ui.theme
 
 import androidx.compose.ui.graphics.Color
 

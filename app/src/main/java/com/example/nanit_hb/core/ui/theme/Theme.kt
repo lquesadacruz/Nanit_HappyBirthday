@@ -1,6 +1,5 @@
-package com.example.nanit_hb.ui.theme
+package com.example.nanit_hb.core.ui.theme
 
-import android.app.Activity
 import android.os.Build
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material3.MaterialTheme
