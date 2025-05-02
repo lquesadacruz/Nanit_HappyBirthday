@@ -12,6 +12,7 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.material3.Button
 import androidx.compose.material3.Card
+import androidx.compose.material3.Checkbox
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
@@ -25,8 +26,9 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
-import androidx.compose.ui.text.input.TextFieldValue
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
+import com.example.nanit_hb.R
 import java.util.regex.Pattern
 
 @Composable
@@ -34,15 +36,16 @@ fun ConnectionForm(
     ip: String,
     port: String,
     isLoading: Boolean,
-    onConnect: (String, Int) -> Unit,
+    onIpChanged: (String?) -> Unit,
+    onPortChanged: (Int?) -> Unit,
+    onConnect: (String, Int, Boolean) -> Unit,
 ) {
   LocalContext.current
   rememberCoroutineScope()
 
-  var ipText by remember { mutableStateOf(TextFieldValue(ip)) }
-  var portText by remember { mutableStateOf(TextFieldValue(port)) }
   var ipError by remember { mutableStateOf<String?>(null) }
   var portError by remember { mutableStateOf<String?>(null) }
+  var isSavingEnabled by remember { mutableStateOf<Boolean>(true) }
 
   val isValidIp: (String) -> Boolean = {
     val ipPattern =
@@ -60,9 +63,9 @@ fun ConnectionForm(
       Text("These fields are required to connect:")
       OutlinedTextField(
           enabled = !isLoading,
-          value = ipText,
+          value = ip,
           onValueChange = {
-            ipText = it
+            onIpChanged(it)
             ipError = null
           },
           label = { Text("IP Address") },
@@ -79,9 +82,9 @@ fun ConnectionForm(
 
       OutlinedTextField(
           enabled = !isLoading,
-          value = portText,
+          value = port,
           onValueChange = {
-            portText = it
+            onPortChanged(it.toIntOrNull())
             portError = null
           },
           label = { Text("Port") },
@@ -94,14 +97,18 @@ fun ConnectionForm(
             style = MaterialTheme.typography.labelSmall)
       }
 
+      Row(
+          verticalAlignment = Alignment.CenterVertically,
+          horizontalArrangement = Arrangement.SpaceAround) {
+            Checkbox(checked = isSavingEnabled, onCheckedChange = { isSavingEnabled = it })
+            Text(stringResource(R.string.save_connection_values))
+          }
+
       Spacer(modifier = Modifier.height(16.dp))
 
       Button(
           enabled = !isLoading,
           onClick = {
-            val ip = ipText.text.trim()
-            val port = portText.text.trim()
-
             var hasError = false
 
             if (!isValidIp(ip)) {
@@ -114,7 +121,7 @@ fun ConnectionForm(
             }
 
             if (!hasError) {
-              onConnect(ip, port.toInt())
+              onConnect(ip, port.toInt(), isSavingEnabled)
             }
           },
           modifier = Modifier.fillMaxWidth()) {

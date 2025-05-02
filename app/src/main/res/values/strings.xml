@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">Nanit_HappyBirthday</string>
     <string name="error_no_connection">There was an error connecting. Check your configuration, connection status or the server availability.</string>
+    <string name="save_connection_values">Save these values for next time</string>
 </resources>

@@ -31,6 +31,7 @@ private fun ConnectionScreen(
 ) {
   var snackbarHostState = remember { SnackbarHostState() }
   val context = LocalContext.current
+  LaunchedEffect(true) { onAction(ConnectionAction.LoadConnectionValues) }
   Scaffold(
       modifier = Modifier.fillMaxSize(),
       snackbarHost = { SnackbarHost(hostState = snackbarHostState) },
@@ -46,9 +47,20 @@ private fun ConnectionScreen(
           snackbarHostState.showSnackbar(context.getString(R.string.error_no_connection))
         }
       }
-      ConnectionForm(state.ip, state.port.toString(), state.isLoading) { ip, port ->
-        onAction(ConnectionAction.OnConnectClicked(ip, port))
-      }
+      ConnectionForm(
+          state.ip,
+          state.port.toString(),
+          state.isLoading,
+          onIpChanged = { ip -> onAction(ConnectionAction.SaveIp(ip)) },
+          onPortChanged = { port -> onAction(ConnectionAction.SavePort(port)) },
+          onConnect = { ip, port, shouldSave ->
+            onAction(ConnectionAction.Connect(ip, port))
+            if (shouldSave) {
+              onAction(ConnectionAction.SaveConnectionValues(ip, port))
+            } else {
+              onAction(ConnectionAction.ClearConnectionValues)
+            }
+          })
     }
   }
 }

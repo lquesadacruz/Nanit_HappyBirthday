@@ -72,4 +72,7 @@ dependencies {
 
   // Datetime
   implementation(libs.kotlinx.datetime)
+
+  // Preferences
+  implementation(libs.androidx.datastore.preferences)
 }
