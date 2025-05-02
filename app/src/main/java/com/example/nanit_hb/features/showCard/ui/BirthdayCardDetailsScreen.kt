@@ -9,14 +9,14 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
-import com.example.nanit_hb.R
 import com.example.nanit_hb.features.showCard.domain.BirthdayCardTheme
+import com.example.nanit_hb.features.showCard.util.toDrawableResourceId
 
 @Composable
 fun BirthdayCardDetailsScreen(name: String, years: Int, months: Int, theme: BirthdayCardTheme) {
   Box(modifier = Modifier.fillMaxSize()) {
     Image(
-        painter = painterResource(id = R.drawable.ic_launcher_background),
+        painter = painterResource(id = theme.toDrawableResourceId()),
         contentDescription = null,
         contentScale = ContentScale.Crop,
         modifier = Modifier.fillMaxSize())

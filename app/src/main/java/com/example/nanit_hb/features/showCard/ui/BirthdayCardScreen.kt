@@ -22,8 +22,8 @@ import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.example.nanit_hb.R
 import com.example.nanit_hb.core.ui.composables.AnimatedImageVectorWithFadeScale
-import com.example.nanit_hb.core.ui.images.toSmallImageVector
 import com.example.nanit_hb.features.showCard.domain.BirthdayCardData
+import com.example.nanit_hb.features.showCard.util.toSmallImageVector
 import org.koin.androidx.compose.koinViewModel
 
 @Composable
