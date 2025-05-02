@@ -100,7 +100,10 @@ fun ConnectionForm(
       Row(
           verticalAlignment = Alignment.CenterVertically,
           horizontalArrangement = Arrangement.SpaceAround) {
-            Checkbox(checked = isSavingEnabled, onCheckedChange = { isSavingEnabled = it })
+            Checkbox(
+                checked = isSavingEnabled,
+                onCheckedChange = { isSavingEnabled = it },
+                enabled = !isLoading)
             Text(stringResource(R.string.save_connection_values))
           }
 

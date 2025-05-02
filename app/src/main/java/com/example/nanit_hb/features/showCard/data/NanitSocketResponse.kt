@@ -1,6 +1,7 @@
 package com.example.nanit_hb.features.showCard.data
 
 import com.example.nanit_hb.features.showCard.domain.BirthdayCardData
+import com.example.nanit_hb.features.showCard.domain.BirthdayCardTheme
 import kotlinx.datetime.Clock
 import kotlinx.datetime.Instant
 import kotlinx.datetime.LocalDate
@@ -20,7 +21,9 @@ fun NanitSocketResponse.toBirthdayCardData(): BirthdayCardData {
   val date = dob.toLocalDateFromMillis()
   val today = Clock.System.now().toLocalDateTime(TimeZone.currentSystemDefault()).date
   val period = date.periodUntil(today)
-  return BirthdayCardData(name, period.years, period.months, theme)
+  val birthdayCardTheme =
+      BirthdayCardTheme.entries.first { it -> it.name.lowercase() == theme.lowercase() }
+  return BirthdayCardData(name, period.years, period.months, birthdayCardTheme)
 }
 
 fun Long.toLocalDateFromMillis(): LocalDate {

@@ -42,9 +42,13 @@ class ConnectionViewModel(
 
   private fun loadConnectionValues() {
     viewModelScope.launch {
+      _state.update { it.copy(isLoadingData = true) }
       val connectionValues = localStorage.getConnectionValues()
       if (connectionValues != null) {
-        _state.update { it.copy(ip = connectionValues.first, port = connectionValues.second) }
+        _state.update {
+          it.copy(
+              ip = connectionValues.first, port = connectionValues.second, isLoadingData = false)
+        }
       }
     }
   }
@@ -54,10 +58,12 @@ class ConnectionViewModel(
   }
 
   private fun tryToConnect(ip: String, port: Int) {
-    _state.update { it.copy(isLoading = true, hasError = false) }
+    _state.update { it.copy(isConnecting = true, hasError = false) }
     viewModelScope.launch {
       val isConnected = connectionService.connect("ws://$ip:$port/nanit")
-      _state.update { it.copy(isLoading = false, hasError = !isConnected, isSuccess = isConnected) }
+      _state.update {
+        it.copy(isConnecting = false, hasError = !isConnected, isSuccess = isConnected)
+      }
     }
   }
 

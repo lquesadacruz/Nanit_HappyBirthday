@@ -4,6 +4,7 @@ data class ConnectionState(
     val ip: String = "",
     val port: Int = 0,
     val isSuccess: Boolean = false,
-    val isLoading: Boolean = false,
+    val isConnecting: Boolean = false,
+    val isLoadingData: Boolean = true,
     val hasError: Boolean = false
 )
