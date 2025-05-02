@@ -23,6 +23,7 @@ fun BirthdayCardScreenRoot(viewModel: BirthdayCardViewModel = koinViewModel()) {
 
 @Composable
 private fun BirthdayCardScreen(state: BirthdayCardState, onAction: (BirthdayCardAction) -> Unit) {
+  val data = state.data
   Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
     Box(Modifier.padding(innerPadding).fillMaxSize(), contentAlignment = Alignment.Center) {
       Column(
@@ -31,7 +32,9 @@ private fun BirthdayCardScreen(state: BirthdayCardState, onAction: (BirthdayCard
             Button(onClick = { onAction(BirthdayCardAction.SendMessage("HappyBirthday")) }) {
               Text("Start")
             }
-            Text(state.message)
+            if (data != null) {
+              Text("${data.name} | ${data.years} years | ${data.months} months | ${data.theme}")
+            }
           }
     }
   }

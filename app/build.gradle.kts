@@ -69,4 +69,7 @@ dependencies {
 
   // JSON serialization library, works with the Kotlin serialization plugin
   implementation(libs.kotlinx.serialization.json)
+
+  // Datetime
+  implementation(libs.kotlinx.datetime)
 }
