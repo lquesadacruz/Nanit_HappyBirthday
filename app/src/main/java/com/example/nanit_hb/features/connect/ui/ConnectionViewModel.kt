@@ -30,8 +30,4 @@ class ConnectionViewModel(val connectionService: IConnectionService) : ViewModel
   override fun onCleared() {
     viewModelScope.launch { connectionService.close() }
   }
-
-  fun sendMessage(msg: String) {
-    viewModelScope.launch { connectionService.sendMessage(msg) }
-  }
 }

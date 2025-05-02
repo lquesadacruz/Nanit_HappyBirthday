@@ -22,7 +22,7 @@ fun BirthdayCardScreenRoot(viewModel: BirthdayCardViewModel = koinViewModel()) {
 private fun BirthdayCardScreen(state: BirthdayCardState, onAction: (BirthdayCardAction) -> Unit) {
   Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
     Box(Modifier.padding(innerPadding).fillMaxSize(), contentAlignment = Alignment.Center) {
-      Text("Birthday Card")
+      Text(state.message)
     }
   }
 }

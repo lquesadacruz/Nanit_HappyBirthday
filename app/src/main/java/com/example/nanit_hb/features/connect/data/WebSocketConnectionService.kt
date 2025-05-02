@@ -1,6 +1,7 @@
 package com.example.nanit_hb.features.connect.data
 
 import com.example.nanit_hb.features.connect.domain.IConnectionService
+import kotlinx.coroutines.flow.SharedFlow
 
 class WebSocketConnectionService(val webSocketClient: WebSocketClient) : IConnectionService {
 
@@ -16,4 +17,6 @@ class WebSocketConnectionService(val webSocketClient: WebSocketClient) : IConnec
   override suspend fun sendMessage(msg: String) = webSocketClient.send(msg)
 
   override suspend fun close() = webSocketClient.disconnect()
+
+  override val messages: SharedFlow<String> = webSocketClient.messages
 }
