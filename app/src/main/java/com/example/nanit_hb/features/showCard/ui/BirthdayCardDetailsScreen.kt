@@ -1,19 +1,28 @@
 package com.example.nanit_hb.features.showCard.ui
 
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.res.painterResource
+import com.example.nanit_hb.R
 import com.example.nanit_hb.features.showCard.domain.BirthdayCardTheme
 
 @Composable
 fun BirthdayCardDetailsScreen(name: String, years: Int, months: Int, theme: BirthdayCardTheme) {
-  Scaffold { innerPadding ->
-    Box(Modifier.padding(innerPadding).fillMaxSize(), contentAlignment = Alignment.Center) {
+  Box(modifier = Modifier.fillMaxSize()) {
+    Image(
+        painter = painterResource(id = R.drawable.ic_launcher_background),
+        contentDescription = null,
+        contentScale = ContentScale.Crop,
+        modifier = Modifier.fillMaxSize())
+
+    // Add your content here
+    Box(modifier = Modifier.align(Alignment.Center)) {
       Text("$name | $years years | $months months | $theme")
     }
   }
