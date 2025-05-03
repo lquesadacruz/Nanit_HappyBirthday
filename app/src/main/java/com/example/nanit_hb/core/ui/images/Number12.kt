@@ -51,7 +51,7 @@ val LocalImages.Number12: ImageVector
                     curveToRelative(4.24f, -5.69f, 7.5f, -16.82f, -3.15f, -16.82f)
                   }
               path(
-                  fill = SolidColor(Color(0xFF000000)),
+                  fill = SolidColor(Color(0xFFFFFFFF)),
                   stroke = null,
                   strokeLineWidth = 0.0f,
                   strokeLineCap = Butt,
@@ -126,7 +126,7 @@ val LocalImages.Number12: ImageVector
                     close()
                   }
               path(
-                  fill = SolidColor(Color(0xFF000000)),
+                  fill = SolidColor(Color(0xFFFFFFFF)),
                   stroke = null,
                   strokeLineWidth = 0.0f,
                   strokeLineCap = Butt,

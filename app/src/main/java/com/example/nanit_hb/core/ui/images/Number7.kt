@@ -47,7 +47,7 @@ val LocalImages.Number7: ImageVector
                     close()
                   }
               path(
-                  fill = SolidColor(Color(0xFF000000)),
+                  fill = SolidColor(Color(0xFFFFFFFF)),
                   stroke = null,
                   strokeLineWidth = 0.0f,
                   strokeLineCap = Butt,

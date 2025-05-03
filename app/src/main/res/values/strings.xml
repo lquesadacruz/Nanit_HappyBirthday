@@ -5,4 +5,6 @@
     <string name="send_message">Happy Birthday</string>
     <string name="loading_saved_data">Loading saved data</string>
     <string name="app_greet">Nanit wishes you Happy Birthday!</string>
+    <string name="today_s_birthday">Today %1$s is</string>
+    <string name="nanit">Nanit</string>
 </resources>

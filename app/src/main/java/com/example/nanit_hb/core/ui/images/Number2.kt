@@ -51,7 +51,7 @@ val LocalImages.Number2: ImageVector
                     curveToRelative(4.235f, -5.687f, 7.502f, -16.819f, -3.146f, -16.819f)
                   }
               path(
-                  fill = SolidColor(Color(0xFF000000)),
+                  fill = SolidColor(Color(0xFFFFFFFF)),
                   stroke = null,
                   strokeLineWidth = 0.0f,
                   strokeLineCap = Butt,

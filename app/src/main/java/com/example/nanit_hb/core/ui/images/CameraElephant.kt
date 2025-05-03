@@ -44,7 +44,7 @@ val LocalImages.CameraElephant: ImageVector
                     arcToRelative(18.0f, 18.0f, 0.0f, true, true, -36.0f, 0.0f)
                   }
               path(
-                  fill = SolidColor(Color(0xFF000000)),
+                  fill = SolidColor(Color(0xFFFFFFFF)),
                   stroke = null,
                   strokeLineWidth = 0.0f,
                   strokeLineCap = Butt,
@@ -76,7 +76,7 @@ val LocalImages.CameraElephant: ImageVector
                     arcToRelative(3.0f, 3.0f, 0.0f, false, true, 6.0f, 0.0f)
                   }
               path(
-                  fill = SolidColor(Color(0xFF000000)),
+                  fill = SolidColor(Color(0xFFFFFFFF)),
                   stroke = null,
                   strokeLineWidth = 0.0f,
                   strokeLineCap = Butt,

@@ -2,6 +2,9 @@ package com.example.nanit_hb.features.showCard.util
 
 import androidx.compose.ui.graphics.vector.ImageVector
 import com.example.nanit_hb.R
+import com.example.nanit_hb.core.ui.images.CameraElephant
+import com.example.nanit_hb.core.ui.images.CameraFox
+import com.example.nanit_hb.core.ui.images.CameraPelican
 import com.example.nanit_hb.core.ui.images.LargeElephant
 import com.example.nanit_hb.core.ui.images.LargeFox
 import com.example.nanit_hb.core.ui.images.LargePelican
@@ -36,3 +39,19 @@ fun BirthdayCardTheme.toLargeImageVector(): ImageVector {
 }
 
 fun Int.toNumberImageVector(): ImageVector? = LocalImages.numbers[this]
+
+fun BirthdayCardTheme.toBackgroundColor(): String {
+  return when (this) {
+    BirthdayCardTheme.Fox -> "#C5E8DF"
+    BirthdayCardTheme.Elephant -> "#FEEFCB"
+    BirthdayCardTheme.Pelican -> "#DAF1F6"
+  }
+}
+
+fun BirthdayCardTheme.toCameraImageVector(): ImageVector {
+  return when (this) {
+    BirthdayCardTheme.Fox -> LocalImages.CameraFox
+    BirthdayCardTheme.Elephant -> LocalImages.CameraElephant
+    BirthdayCardTheme.Pelican -> LocalImages.CameraPelican
+  }
+}

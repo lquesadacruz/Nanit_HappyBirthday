@@ -1,0 +1,11 @@
+<resources>
+    <plurals name="years">
+        <item quantity="one">year old!</item>
+        <item quantity="other">years old!</item>
+    </plurals>
+
+    <plurals name="months">
+        <item quantity="one">month old!</item>
+        <item quantity="other">months old!</item>
+    </plurals>
+</resources>
