@@ -42,13 +42,9 @@ class ConnectionViewModel(
 
   private fun loadConnectionValues() {
     viewModelScope.launch {
-      _state.update { it.copy(isLoadingData = true) }
       val connectionValues = localStorage.getConnectionValues()
       if (connectionValues != null) {
-        _state.update {
-          it.copy(
-              ip = connectionValues.first, port = connectionValues.second, isLoadingData = false)
-        }
+        _state.update { it.copy(ip = connectionValues.first, port = connectionValues.second) }
       }
     }
   }

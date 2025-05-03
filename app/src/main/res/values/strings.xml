@@ -1,7 +1,8 @@
 <resources>
-    <string name="app_name">Nanit_HappyBirthday</string>
+    <string name="app_name">Happy Birthday</string>
     <string name="error_no_connection">There was an error connecting. Check your configuration, connection status or the server availability.</string>
     <string name="save_connection_values">Save these values for next time</string>
     <string name="send_message">Happy Birthday</string>
     <string name="loading_saved_data">Loading saved data</string>
+    <string name="app_greet">Nanit wishes you Happy Birthday!</string>
 </resources>
