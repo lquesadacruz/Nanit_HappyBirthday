@@ -1,4 +1,4 @@
-package com.example.nanit_hb.features.connect.data
+package com.example.nanit_hb.core.data
 
 import io.ktor.client.HttpClient
 import io.ktor.client.plugins.websocket.webSocketSession

@@ -5,10 +5,10 @@ import androidx.datastore.core.DataStore
 import androidx.datastore.preferences.core.Preferences
 import androidx.datastore.preferences.preferencesDataStore
 import com.example.nanit_hb.core.data.LocalStorageRepository
+import com.example.nanit_hb.core.data.WebSocketClient
+import com.example.nanit_hb.core.data.WebSocketConnectionService
+import com.example.nanit_hb.core.domain.IConnectionService
 import com.example.nanit_hb.core.domain.ILocalStorageRepository
-import com.example.nanit_hb.features.connect.data.WebSocketClient
-import com.example.nanit_hb.features.connect.data.WebSocketConnectionService
-import com.example.nanit_hb.features.connect.domain.IConnectionService
 import io.ktor.client.HttpClient
 import io.ktor.client.engine.okhttp.OkHttp
 import io.ktor.client.plugins.websocket.WebSockets

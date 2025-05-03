@@ -2,7 +2,7 @@ package com.example.nanit_hb.features.showCard.ui
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.nanit_hb.features.connect.domain.IConnectionService
+import com.example.nanit_hb.core.domain.IConnectionService
 import com.example.nanit_hb.features.showCard.data.NanitSocketResponse
 import com.example.nanit_hb.features.showCard.data.toBirthdayCardData
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -19,10 +19,14 @@ class BirthdayCardViewModel(val connectionService: IConnectionService) : ViewMod
 
   init {
     viewModelScope.launch {
-      connectionService.messages.collectLatest { message ->
-        val response = Json.decodeFromString<NanitSocketResponse>(message)
-        val data = response.toBirthdayCardData()
-        _state.update { it.copy(data = data) }
+      try {
+        connectionService.messages.collectLatest { message ->
+          val response = Json.decodeFromString<NanitSocketResponse>(message)
+          val data = response.toBirthdayCardData()
+          _state.update { it.copy(data = data) }
+        }
+      } catch (_: Exception) {
+        connectionService.close()
       }
     }
   }
@@ -34,6 +38,12 @@ class BirthdayCardViewModel(val connectionService: IConnectionService) : ViewMod
   }
 
   private fun sendMessage(message: String) {
-    viewModelScope.launch { connectionService.sendMessage(message) }
+    viewModelScope.launch {
+      try {
+        connectionService.sendMessage(message)
+      } catch (_: Exception) {
+        connectionService.close()
+      }
+    }
   }
 }

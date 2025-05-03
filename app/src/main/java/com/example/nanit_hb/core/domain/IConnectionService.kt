@@ -1,4 +1,4 @@
-package com.example.nanit_hb.features.connect.domain
+package com.example.nanit_hb.core.domain
 
 import kotlinx.coroutines.flow.SharedFlow
 

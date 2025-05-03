@@ -1,6 +1,6 @@
-package com.example.nanit_hb.features.connect.data
+package com.example.nanit_hb.core.data
 
-import com.example.nanit_hb.features.connect.domain.IConnectionService
+import com.example.nanit_hb.core.domain.IConnectionService
 import kotlinx.coroutines.flow.SharedFlow
 
 class WebSocketConnectionService(val webSocketClient: WebSocketClient) : IConnectionService {

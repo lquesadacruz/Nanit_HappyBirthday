@@ -2,8 +2,8 @@ package com.example.nanit_hb.features.connect.ui
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.nanit_hb.core.domain.IConnectionService
 import com.example.nanit_hb.core.domain.ILocalStorageRepository
-import com.example.nanit_hb.features.connect.domain.IConnectionService
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.stateIn
