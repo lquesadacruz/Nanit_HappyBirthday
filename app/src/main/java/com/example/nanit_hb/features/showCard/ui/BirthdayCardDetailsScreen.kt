@@ -20,64 +20,61 @@ import com.example.nanit_hb.core.ui.images.LeftSwirls
 import com.example.nanit_hb.core.ui.images.LocalImages
 import com.example.nanit_hb.core.ui.images.RightSwirls
 import com.example.nanit_hb.features.showCard.domain.BirthdayCardTheme
-import com.example.nanit_hb.features.showCard.util.toBackgroundResourceId
+import com.example.nanit_hb.features.showCard.util.toForegroundResourceId
 import com.example.nanit_hb.features.showCard.util.toLargeImageVector
 import com.example.nanit_hb.features.showCard.util.toNumberImageVector
 
 @Composable
 fun BirthdayCardDetailsScreen(name: String, years: Int, months: Int, theme: BirthdayCardTheme) {
   Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
-    Column(
-        horizontalAlignment = Alignment.CenterHorizontally,
-        verticalArrangement = Arrangement.Center) {
-          Text(
-              "TODAY ${name.uppercase()} IS",
-              textAlign = TextAlign.Center,
-              maxLines = 2,
-              softWrap = true,
-              style = MaterialTheme.typography.headlineLarge)
-          Row(
-              verticalAlignment = Alignment.CenterVertically,
-              horizontalArrangement = Arrangement.Center) {
-                Image(
-                    imageVector = LocalImages.LeftSwirls,
-                    contentDescription = null,
-                    contentScale = ContentScale.None,
-                    modifier = Modifier.size(80.dp),
-                )
-                Image(
-                    imageVector = (if (years > 0) years else months).toNumberImageVector()!!,
-                    contentDescription = null,
-                    contentScale = ContentScale.None,
-                    modifier = Modifier.size(120.dp),
-                )
-                Image(
-                    imageVector = LocalImages.RightSwirls,
-                    contentDescription = null,
-                    contentScale = ContentScale.None,
-                    modifier = Modifier.size(80.dp),
-                )
-              }
-          Text(
-              "${if (years > 0) "YEARS" else "MONTHS"} OLD!",
-              textAlign = TextAlign.Center,
-              style = MaterialTheme.typography.headlineMedium)
-          Image(
-              imageVector = theme.toLargeImageVector(),
-              contentDescription = null,
-              contentScale = ContentScale.Crop,
-              modifier = Modifier.size(300.dp),
-          )
-        }
+    Column(horizontalAlignment = Alignment.CenterHorizontally) {
+      Text(
+          "TODAY ${name.uppercase()} IS",
+          textAlign = TextAlign.Center,
+          maxLines = 2,
+          softWrap = true,
+          style = MaterialTheme.typography.headlineLarge)
+      Row(
+          verticalAlignment = Alignment.CenterVertically,
+          horizontalArrangement = Arrangement.Center) {
+            Image(
+                imageVector = LocalImages.LeftSwirls,
+                contentDescription = null,
+                contentScale = ContentScale.None,
+                modifier = Modifier.size(80.dp),
+            )
+            Image(
+                imageVector = (if (years > 0) years else months).toNumberImageVector()!!,
+                contentDescription = null,
+                contentScale = ContentScale.None,
+                modifier = Modifier.size(120.dp),
+            )
+            Image(
+                imageVector = LocalImages.RightSwirls,
+                contentDescription = null,
+                contentScale = ContentScale.None,
+                modifier = Modifier.size(80.dp),
+            )
+          }
+      Text(
+          "${if (years > 0) "YEARS" else "MONTHS"} OLD!",
+          textAlign = TextAlign.Center,
+          style = MaterialTheme.typography.headlineMedium)
+      Image(
+          imageVector = theme.toLargeImageVector(),
+          contentDescription = null,
+          contentScale = ContentScale.Crop,
+          modifier = Modifier.size(300.dp),
+      )
+    }
 
     Box(modifier = Modifier.align(Alignment.Center)) {
       Image(
-          painter = painterResource(id = theme.toBackgroundResourceId()),
+          painter = painterResource(id = theme.toForegroundResourceId()),
           contentDescription = null,
           contentScale = ContentScale.Crop,
           modifier = Modifier.fillMaxSize(),
       )
-      //      Text("$name | $years years | $months months | $theme")
     }
   }
 }

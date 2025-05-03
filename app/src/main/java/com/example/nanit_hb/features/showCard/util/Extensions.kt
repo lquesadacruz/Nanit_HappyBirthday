@@ -19,7 +19,7 @@ fun BirthdayCardTheme.toSmallImageVector(): ImageVector {
   }
 }
 
-fun BirthdayCardTheme.toBackgroundResourceId(): Int {
+fun BirthdayCardTheme.toForegroundResourceId(): Int {
   return when (this) {
     BirthdayCardTheme.Fox -> R.drawable.bg_fox
     BirthdayCardTheme.Elephant -> R.drawable.bg_elephant
