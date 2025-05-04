@@ -15,6 +15,10 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.example.nanit_hb.R
+import com.example.nanit_hb.features.connect.ui.composables.ConnectionForm
+import com.example.nanit_hb.features.connect.ui.logic.ConnectionAction
+import com.example.nanit_hb.features.connect.ui.logic.ConnectionState
+import com.example.nanit_hb.features.connect.ui.logic.ConnectionViewModel
 import org.koin.androidx.compose.koinViewModel
 
 @Composable

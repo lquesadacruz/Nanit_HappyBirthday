@@ -7,4 +7,9 @@
     <string name="app_greet">Nanit wishes you Happy Birthday!</string>
     <string name="today_s_birthday">Today %1$s is</string>
     <string name="nanit">Nanit</string>
+    <string name="choose_image_source">Choose Image Source</string>
+    <string name="pick_an_option_to_add_an_image">Pick an option to add an image</string>
+    <string name="camera">Camera</string>
+    <string name="gallery">Gallery</string>
+    <string name="error_could_not_take_photo">The photo could not be taken</string>
 </resources>

@@ -1,4 +1,4 @@
-package com.example.nanit_hb.features.connect.ui
+package com.example.nanit_hb.features.connect.ui.composables
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box

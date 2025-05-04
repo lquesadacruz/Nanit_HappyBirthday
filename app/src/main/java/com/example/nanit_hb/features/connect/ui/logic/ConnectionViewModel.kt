@@ -1,4 +1,4 @@
-package com.example.nanit_hb.features.connect.ui
+package com.example.nanit_hb.features.connect.ui.logic
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope

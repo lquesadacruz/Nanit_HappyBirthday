@@ -1,4 +1,4 @@
-package com.example.nanit_hb.features.connect.ui
+package com.example.nanit_hb.features.connect.ui.logic
 
 sealed interface ConnectionAction {
   data class Connect(val ip: String, val port: Int) : ConnectionAction

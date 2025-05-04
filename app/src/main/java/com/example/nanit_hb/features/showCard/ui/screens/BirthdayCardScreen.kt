@@ -1,4 +1,4 @@
-package com.example.nanit_hb.features.showCard.ui
+package com.example.nanit_hb.features.showCard.ui.screens
 
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
@@ -21,9 +21,12 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.example.nanit_hb.R
-import com.example.nanit_hb.core.ui.composables.AnimatedImageVectorWithFadeScale
+import com.example.nanit_hb.features.connect.ui.composables.AnimatedImageVectorWithFadeScale
 import com.example.nanit_hb.features.showCard.domain.BirthdayCardData
-import com.example.nanit_hb.features.showCard.util.toSmallImageVector
+import com.example.nanit_hb.features.showCard.ui.logic.BirthdayCardAction
+import com.example.nanit_hb.features.showCard.ui.logic.BirthdayCardState
+import com.example.nanit_hb.features.showCard.ui.logic.BirthdayCardViewModel
+import com.example.nanit_hb.features.showCard.util.toButtonImageVector
 import org.koin.androidx.compose.koinViewModel
 
 @Composable
@@ -54,7 +57,7 @@ private fun BirthdayCardScreen(
             }
             if (data != null) {
               AnimatedImageVectorWithFadeScale(
-                  imageVector = data.theme.toSmallImageVector(),
+                  imageVector = data.theme.toButtonImageVector(),
                   contentDescription = data.theme.name,
                   Modifier.clickable(
                           onClick = {

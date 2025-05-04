@@ -1,4 +1,4 @@
-package com.example.nanit_hb.features.connect.ui
+package com.example.nanit_hb.features.connect.ui.logic
 
 data class ConnectionState(
     val ip: String = "",

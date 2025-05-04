@@ -1,4 +1,4 @@
-package com.example.nanit_hb.features.showCard.ui
+package com.example.nanit_hb.features.showCard.ui.logic
 
 import com.example.nanit_hb.features.showCard.domain.BirthdayCardData
 

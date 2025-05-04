@@ -1,6 +1,7 @@
 package com.example.nanit_hb.features.showCard.util
 
 import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.core.graphics.toColorInt
 import com.example.nanit_hb.R
 import com.example.nanit_hb.core.ui.images.CameraElephant
 import com.example.nanit_hb.core.ui.images.CameraFox
@@ -14,7 +15,7 @@ import com.example.nanit_hb.core.ui.images.SmallFox
 import com.example.nanit_hb.core.ui.images.SmallPelican
 import com.example.nanit_hb.features.showCard.domain.BirthdayCardTheme
 
-fun BirthdayCardTheme.toSmallImageVector(): ImageVector {
+fun BirthdayCardTheme.toButtonImageVector(): ImageVector {
   return when (this) {
     BirthdayCardTheme.Fox -> LocalImages.SmallFox
     BirthdayCardTheme.Elephant -> LocalImages.SmallElephant
@@ -30,7 +31,7 @@ fun BirthdayCardTheme.toForegroundResourceId(): Int {
   }
 }
 
-fun BirthdayCardTheme.toLargeImageVector(): ImageVector {
+fun BirthdayCardTheme.toPlaceholderImageVector(): ImageVector {
   return when (this) {
     BirthdayCardTheme.Fox -> LocalImages.LargeFox
     BirthdayCardTheme.Elephant -> LocalImages.LargeElephant
@@ -40,12 +41,12 @@ fun BirthdayCardTheme.toLargeImageVector(): ImageVector {
 
 fun Int.toNumberImageVector(): ImageVector? = LocalImages.numbers[this]
 
-fun BirthdayCardTheme.toBackgroundColor(): String {
+fun BirthdayCardTheme.toBackgroundColorResourceId(): Int {
   return when (this) {
     BirthdayCardTheme.Fox -> "#C5E8DF"
     BirthdayCardTheme.Elephant -> "#FEEFCB"
     BirthdayCardTheme.Pelican -> "#DAF1F6"
-  }
+  }.toColorInt()
 }
 
 fun BirthdayCardTheme.toCameraImageVector(): ImageVector {
@@ -54,4 +55,12 @@ fun BirthdayCardTheme.toCameraImageVector(): ImageVector {
     BirthdayCardTheme.Elephant -> LocalImages.CameraElephant
     BirthdayCardTheme.Pelican -> LocalImages.CameraPelican
   }
+}
+
+fun BirthdayCardTheme.toBorderColorResourceId(): Int {
+  return when (this) {
+    BirthdayCardTheme.Fox -> "#6FC5AF"
+    BirthdayCardTheme.Elephant -> "#FEBE21"
+    BirthdayCardTheme.Pelican -> "#8BD3E4"
+  }.toColorInt()
 }

@@ -1,4 +1,4 @@
-package com.example.nanit_hb.core.ui.composables
+package com.example.nanit_hb.features.connect.ui.composables
 
 import androidx.compose.animation.core.animateFloatAsState
 import androidx.compose.animation.core.tween
