@@ -45,7 +45,7 @@ fun ConnectionScreenRoot(viewModel: ConnectionViewModel = koinViewModel(), goFor
 private fun ConnectionScreen(
     state: ConnectionState,
     onAction: (ConnectionAction) -> Unit = {},
-    goForward: () -> Unit = {}
+    goForward: () -> Unit = {},
 ) {
   var snackbarHostState = remember { SnackbarHostState() }
   val context = LocalContext.current
@@ -54,9 +54,10 @@ private fun ConnectionScreen(
       modifier = Modifier.fillMaxSize(),
       snackbarHost = { SnackbarHost(hostState = snackbarHostState) },
   ) { innerPadding ->
-    Box(Modifier
-        .padding(innerPadding)
-        .fillMaxSize(), contentAlignment = Alignment.Center) {
+    Box(
+        Modifier.padding(innerPadding).fillMaxSize(),
+        contentAlignment = Alignment.Center,
+    ) {
       LaunchedEffect(state.isConnecting, state.isSuccess) {
         if (!state.isConnecting && state.isSuccess) {
           goForward()
@@ -76,8 +77,7 @@ private fun ConnectionScreen(
             contentDescription = null,
             contentScale = ContentScale.Crop,
             modifier =
-                Modifier
-                    .size(200.dp)
+                Modifier.size(200.dp)
                     .clip(CircleShape)
                     .border(1.dp, MaterialTheme.colorScheme.primary, CircleShape),
         )
@@ -110,5 +110,5 @@ private fun ConnectionScreen(
 @Preview
 @Composable
 private fun Connect() {
-    ConnectionScreen(ConnectionState())
+  ConnectionScreen(ConnectionState())
 }
