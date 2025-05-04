@@ -96,7 +96,7 @@ fun BirthdayCardDetailsScreen(
               name,
               years,
               months,
-              Modifier.align(Alignment.TopCenter).offset(0.dp, 210.dp),
+              Modifier.align(Alignment.TopCenter).offset(0.dp, 180.dp),
           )
           Box(
               contentAlignment = Alignment.BottomCenter,
@@ -117,7 +117,7 @@ fun BirthdayCardDetailsScreen(
               showDialog = true
             }
 
-            ForegroundContainer(theme)
+            ForegroundContainer(theme, Modifier.fillMaxSize().offset(0.dp, 15.dp))
 
             NaniTextContainer(
                 Modifier.size(70.dp, 30.dp).align(Alignment.Center).offset(0.dp, 190.dp))

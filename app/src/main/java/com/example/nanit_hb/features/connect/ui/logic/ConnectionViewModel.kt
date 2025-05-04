@@ -23,8 +23,8 @@ class ConnectionViewModel(
       is ConnectionAction.SaveConnectionValues -> saveConnectionValues(action.ip, action.port)
       is ConnectionAction.ClearConnectionValues -> clearConnectionValues()
       ConnectionAction.LoadConnectionValues -> loadConnectionValues()
-      is ConnectionAction.SaveIp -> updateIp(action.ip)
-      is ConnectionAction.SavePort -> updatePort(action.port)
+      is ConnectionAction.UpdateIp -> updateIp(action.ip)
+      is ConnectionAction.UpdatePort -> updatePort(action.port)
     }
   }
 

@@ -1,15 +1,27 @@
 <resources>
-    <string name="app_name">Happy Birthday</string>
+    <string name="app_name">Birthday Monitor</string>
     <string name="error_no_connection">There was an error connecting. Check your configuration, connection status or the server availability.</string>
     <string name="save_connection_values">Save these values for next time</string>
-    <string name="send_message">Happy Birthday</string>
+    <string name="send_message">Whose birthday is it today?</string>
     <string name="loading_saved_data">Loading saved data</string>
     <string name="app_greet">Nanit wishes you Happy Birthday!</string>
-    <string name="today_s_birthday">Today %1$s is</string>
+    <string name="today_s_birthday">Today %1$s</string>
     <string name="nanit">Nanit</string>
     <string name="choose_image_source">Choose Image Source</string>
     <string name="pick_an_option_to_add_an_image">Pick an option to add an image</string>
     <string name="camera">Camera</string>
     <string name="gallery">Gallery</string>
     <string name="error_could_not_take_photo">The photo could not be taken</string>
+    <string name="these_fields_are_required_to_connect">These fields are required to connect:</string>
+    <string name="ip_address">IP Address</string>
+    <string name="port">Port</string>
+    <string name="invalid_ip_address">Invalid IP address</string>
+    <string name="invalid_port">Port must be between 1 and 65535</string>
+    <string name="connecting">Connecting</string>
+    <string name="connect">Connect</string>
+    <string name="welcome">Welcome to our Birthday Monitor</string>
+    <string name="whose_birthday">It\'s %1$s\'s birthday.</string>
+    <string name="take_photo">Take Photo</string>
+    <string name="see">Let\'s see</string>
+    <string name="is_text">is</string>
 </resources>

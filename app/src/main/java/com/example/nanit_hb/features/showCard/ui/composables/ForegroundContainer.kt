@@ -1,7 +1,6 @@
 package com.example.nanit_hb.features.showCard.ui.composables
 
 import androidx.compose.foundation.Image
-import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
@@ -10,11 +9,11 @@ import com.example.nanit_hb.features.showCard.domain.BirthdayCardTheme
 import com.example.nanit_hb.features.showCard.util.toForegroundResourceId
 
 @Composable
-fun ForegroundContainer(theme: BirthdayCardTheme) {
+fun ForegroundContainer(theme: BirthdayCardTheme, modifier: Modifier = Modifier) {
   Image(
       painter = painterResource(id = theme.toForegroundResourceId()),
       contentDescription = null,
-      modifier = Modifier.fillMaxSize(),
+      modifier = modifier,
   )
 }
 

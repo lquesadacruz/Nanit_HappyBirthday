@@ -1,5 +1,6 @@
 package com.example.nanit_hb.features.connect.ui.composables
 
+import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -12,6 +13,7 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.material3.Button
 import androidx.compose.material3.Card
+import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.Checkbox
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.MaterialTheme
@@ -21,10 +23,10 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
-import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
@@ -40,27 +42,18 @@ fun ConnectionForm(
     onPortChanged: (Int?) -> Unit,
     onConnect: (String, Int, Boolean) -> Unit,
 ) {
-  LocalContext.current
-  rememberCoroutineScope()
-
+  val context = LocalContext.current
   var ipError by remember { mutableStateOf<String?>(null) }
   var portError by remember { mutableStateOf<String?>(null) }
   var isSavingEnabled by remember { mutableStateOf<Boolean>(true) }
 
-  val isValidIp: (String) -> Boolean = {
-    val ipPattern =
-        Pattern.compile(
-            "^((25[0-5]|2[0-4]\\d|[01]?\\d\\d?)\\.){3}(25[0-5]|2[0-4]\\d|[01]?\\d\\d?)$")
-    ipPattern.matcher(it).matches()
-  }
-
-  val isValidPort: (String) -> Boolean = {
-    it.toIntOrNull()?.let { port -> port in 1..65535 } == true
-  }
-
-  Card(Modifier.padding(20.dp)) {
+  Card(
+      colors = CardDefaults.cardColors().copy(containerColor = Color.Transparent),
+      border = BorderStroke(1.dp, MaterialTheme.colorScheme.primary),
+      modifier = Modifier.padding(20.dp),
+  ) {
     Column(modifier = Modifier.padding(16.dp)) {
-      Text("These fields are required to connect:")
+      Text(stringResource(R.string.these_fields_are_required_to_connect))
       OutlinedTextField(
           enabled = !isLoading,
           value = ip,
@@ -68,14 +61,16 @@ fun ConnectionForm(
             onIpChanged(it)
             ipError = null
           },
-          label = { Text("IP Address") },
+          label = { Text(stringResource(R.string.ip_address)) },
           isError = ipError != null,
-          modifier = Modifier.fillMaxWidth())
+          modifier = Modifier.fillMaxWidth(),
+      )
       if (ipError != null) {
         Text(
             ipError ?: "",
             color = MaterialTheme.colorScheme.error,
-            style = MaterialTheme.typography.labelSmall)
+            style = MaterialTheme.typography.labelSmall,
+        )
       }
 
       Spacer(modifier = Modifier.height(8.dp))
@@ -87,9 +82,10 @@ fun ConnectionForm(
             onPortChanged(it.toIntOrNull())
             portError = null
           },
-          label = { Text("Port") },
+          label = { Text(stringResource(R.string.port)) },
           isError = portError != null,
-          modifier = Modifier.fillMaxWidth())
+          modifier = Modifier.fillMaxWidth(),
+      )
       if (portError != null) {
         Text(
             portError ?: "",
@@ -103,7 +99,8 @@ fun ConnectionForm(
             Checkbox(
                 checked = isSavingEnabled,
                 onCheckedChange = { isSavingEnabled = it },
-                enabled = !isLoading)
+                enabled = !isLoading,
+            )
             Text(stringResource(R.string.save_connection_values))
           }
 
@@ -115,11 +112,11 @@ fun ConnectionForm(
             var hasError = false
 
             if (!isValidIp(ip)) {
-              ipError = "Invalid IP address"
+              ipError = context.getString(R.string.invalid_ip_address)
               hasError = true
             }
             if (!isValidPort(port)) {
-              portError = "Port must be between 1 and 65535"
+              portError = context.getString(R.string.invalid_port)
               hasError = true
             }
 
@@ -127,18 +124,31 @@ fun ConnectionForm(
               onConnect(ip, port.toInt(), isSavingEnabled)
             }
           },
-          modifier = Modifier.fillMaxWidth()) {
-            if (isLoading) {
-              Row(
-                  verticalAlignment = Alignment.CenterVertically,
-                  horizontalArrangement = Arrangement.SpaceAround,
-              ) {
-                Text("Connecting")
-                Box(Modifier.width(5.dp))
-                CircularProgressIndicator(Modifier.size(24.dp))
-              }
-            } else Text("Connect")
+          modifier = Modifier.fillMaxWidth(),
+      ) {
+        if (isLoading) {
+          Row(
+              verticalAlignment = Alignment.CenterVertically,
+              horizontalArrangement = Arrangement.SpaceAround,
+          ) {
+            Text(stringResource(R.string.connecting))
+            Box(Modifier.width(5.dp))
+            CircularProgressIndicator(Modifier.size(24.dp))
           }
+        } else {
+          Text(stringResource(R.string.connect))
+        }
+      }
     }
   }
+}
+
+private val isValidIp: (String) -> Boolean = {
+  val ipPattern =
+      Pattern.compile("^((25[0-5]|2[0-4]\\d|[01]?\\d\\d?)\\.){3}(25[0-5]|2[0-4]\\d|[01]?\\d\\d?)$")
+  ipPattern.matcher(it).matches()
+}
+
+private val isValidPort: (String) -> Boolean = {
+  it.toIntOrNull()?.let { port -> port in 1..65535 } == true
 }

@@ -9,7 +9,7 @@ sealed interface ConnectionAction {
 
   data object LoadConnectionValues : ConnectionAction
 
-  data class SaveIp(val ip: String?) : ConnectionAction
+  data class UpdateIp(val ip: String?) : ConnectionAction
 
-  data class SavePort(val port: Int?) : ConnectionAction
+  data class UpdatePort(val port: Int?) : ConnectionAction
 }

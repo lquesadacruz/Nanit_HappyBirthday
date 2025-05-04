@@ -11,9 +11,12 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.nanit_hb.R
@@ -38,8 +41,16 @@ fun NameAndAgeContainer(name: String, years: Int, months: Int, modifier: Modifie
         textAlign = TextAlign.Center,
         maxLines = 2,
         softWrap = true,
+        overflow = TextOverflow.Ellipsis,
         style = MaterialTheme.typography.headlineLarge,
         modifier = Modifier.width(300.dp),
+        color = Color.Black,
+    )
+    Text(
+        stringResource(R.string.is_text).uppercase(),
+        textAlign = TextAlign.Center,
+        style = MaterialTheme.typography.headlineLarge,
+        color = Color.Black,
     )
     Row(
         verticalAlignment = Alignment.CenterVertically,
@@ -55,7 +66,7 @@ fun NameAndAgeContainer(name: String, years: Int, months: Int, modifier: Modifie
           imageVector = (if (years > 0) years else months).toNumberImageVector()!!,
           contentDescription = null,
           contentScale = ContentScale.None,
-          modifier = Modifier.size(100.dp),
+          modifier = Modifier.size(120.dp),
       )
       Image(
           imageVector = LocalImages.RightSwirls,
@@ -67,7 +78,9 @@ fun NameAndAgeContainer(name: String, years: Int, months: Int, modifier: Modifie
     Text(
         (if (years > 0) showYears else showMonths).uppercase(),
         textAlign = TextAlign.Center,
-        style = MaterialTheme.typography.headlineMedium)
+        style = MaterialTheme.typography.headlineMedium,
+        color = Color.Black,
+    )
   }
 }
 
